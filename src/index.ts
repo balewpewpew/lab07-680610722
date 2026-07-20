@@ -178,8 +178,8 @@ app.delete("/students", (req: Request, res: Response) => {
         message: "Student does not exists",
       });
     }
-    
-    students.slice(foundIndex,1);
+
+    students.splice(foundIndex,1);
 
     return res.status(200).json({
       success: true,
