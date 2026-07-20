@@ -162,7 +162,7 @@ app.delete("/students", (req: Request, res: Response) => {
     const body = req.body as Student;
     const val = zStudentDeleteBody.safeParse(body);
     if(!val.success){
-      return res.status(500).json({
+      return res.status(400).json({
         success: false,
         message: "Validation is failed",
         errors: val.error.issues[0]?.message,
