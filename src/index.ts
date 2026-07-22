@@ -25,9 +25,9 @@ app.get("/", (req: Request, res: Response) => {
   res.send("API services for Student Data");
 });
 
-// GET /students
+// GET /api/students
 // get students (by program)
-app.get("/students", (req: Request, res: Response) => {
+app.get("/api/students", (req: Request, res: Response) => {
   try {
     const studentid = req.query.studentId;
     const program = req.query.program;
@@ -62,9 +62,9 @@ app.get("/students", (req: Request, res: Response) => {
   }
 });
 
-// POST /students, body = {new student data}
+// POST /api/students, body = {new student data}
 // add a new student
-app.post("/students", (req: Request, res: Response) => {
+app.post("/api/students", (req: Request, res: Response) => {
   try {
     const body = req.body as Student;
 
@@ -109,9 +109,9 @@ app.post("/students", (req: Request, res: Response) => {
   }
 });
 
-// PUT /students, body = {studentId}
+// PUT /api/students, body = {studentId}
 // Update specified student
-app.put("/students", (req: Request, res: Response) => {
+app.put("/api/students", (req: Request, res: Response) => {
   try {
     const body = req.body as Student;
 
@@ -156,8 +156,8 @@ app.put("/students", (req: Request, res: Response) => {
   }
 });
 
-// DELETE /students, body = {studentId}
-app.delete("/students", (req: Request, res: Response) => {
+// DELETE /api/students, body = {studentId}
+app.delete("/api/students", (req: Request, res: Response) => {
   try{
     const body = req.body as Student;
     const val = zStudentDeleteBody.safeParse(body);
@@ -196,7 +196,7 @@ app.delete("/students", (req: Request, res: Response) => {
 });
 
 // GET /api/me
-app.get("/me",(req:Request,res:Response)=>{
+app.get("/api/me",(req:Request,res:Response)=>{
   try{
     return res.status(200).json({
       success:true,
